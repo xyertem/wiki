@@ -1,0 +1,12 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+   {{ entry_title }}
+{% endblock %}
+
+{# in views.py, i created a function called entry from taking entry by it's title using utility function called get_entry(); "wiki/<str:title> in url.py in path field" #}
+{% block body %}
+    
+        {{ entries|safe }}
+  
+{% endblock %}
