@@ -5,8 +5,11 @@
 {% endblock %}
 
 {# in views.py, i created a function called entry from taking entry by it's title using utility function called get_entry(); "wiki/<str:title> in url.py in path field" #}
+
 {% block body %}
     
-        {{ entries|safe }}
+        {{ page|safe }}
   
-{% endblock %}
+        <a href="editpage.html">Edit page</a>
+
+        {% endblock %}
