@@ -6,13 +6,15 @@ import markdown2
 
 from . import util
 
-class editForm(forms.Form):#this is crerated a form with from class with multiple field
+
+
+class editForm(forms.Form):#this is creating a form with from class with multiple field
     title = forms.CharField(label="Title")
     content = forms.CharField(widget=forms.Textarea)
         
             
        
-def newEntry(request):
+def newentry(request):
 
     if request.method == 'POST':
         
@@ -48,13 +50,18 @@ def index(request):
 
 
 def entry(request, title):
-    try:
-        return render(request,"encyclopedia/EntryPage.html",{# Here, I converted md file to html
-            "page": markdown2.markdown(util.get_entry(title)),
-            "entry_title": title #I got page title  with this variable that i used in entrypage.html to display title name of page.
-    })
-    except:
-        return HttpResponseNotFound("Entry Does not exist")
+    
+    return render(request,"encyclopedia/EntryPage.html",{# Here, I converted md file to html
+        "page": markdown2.markdown(util.get_entry(title)),
+        "entry_title": title #I got page title  with this variable that i used in entrypage.html to display title name of page.
+        })
+    
+
+def search(request):
+     
+    if request.method == 'POST':
+        search_info = 'POST'
+
 
    
   
